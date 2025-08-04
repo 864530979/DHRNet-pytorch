@@ -1,9 +1,9 @@
 import torch
 import torch.nn.functional as F
 
-from backbone.van import van_b2,van_b0,van_b1
-from backbone._resnet import resnet18,resnet34,resnet50
-from backbone.modules import *
+from model.van import van_b2,van_b0,van_b1
+from model._resnet import resnet18,resnet34,resnet50
+from model.modules import *
 from mmcv.ops.deform_conv import DeformConv2dPack
 
 
@@ -404,4 +404,5 @@ if __name__ == '__main__':
                     pretrained=pretrained,mode=backbone).cuda()
     inputs = torch.randn((2, 3, 512,512)).cuda()
     output = model(inputs)
+
     print(output.shape)
